@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+header{
+    max-width: none !important;
+}
+
+.carousel-control-next{
+    background-color: black;
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+    margin-right: 10px;
+    border-radius: 100%;
+    padding: 7px;
+}
+
+.carousel-control-prev{
+    background-color: black;
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+    margin-left: 10px;
+    border-radius: 100%;
+    padding: 7px;
+}
+
+.carousel-item{
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,0.6408614471179097) 0%, rgba(0,212,255,0) 100%);
+}
+
+div.carousel-indicators{
+    width: 100%;
+    margin: auto;
+    padding: 0 10px;
+    background-color: rgba(103, 103, 103, 0.237);
+}
+
+div.carousel-indicators button{
+   height: 13px !important;
+   width: 13px !important;
+   border-radius: 100% !important;
+}
+
+.active{
+    background-color: #e0a34c !important;
+}
