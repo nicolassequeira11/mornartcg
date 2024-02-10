@@ -2,6 +2,9 @@ import React, { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import {CarouselHome} from "../components/Carousel";
 import Cardproduct from "../components/Card-product";
+import ButtonCard from "../components/Buttons";
+import Alert from '@mui/material/Alert';
+import { Footer } from "../components/Footer";
 
 import imgTournament1 from "../media/pokemon-tournament.png";
 import imgTournament2 from "../media/onepiece-tournament.png";
@@ -17,7 +20,7 @@ import Banner4 from "../media/banner-4.png";
 import Banner5 from "../media/banner-5.png";
 import Banner6 from "../media/banner-6.png";
 
-const Home = ({navigate}) => {
+const Home = ({navigate, setCartQuantity, handleButtonClick, buttonClicked, handleAddToCart, cartProducts, setCartProducts}) => {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -67,13 +70,36 @@ const Home = ({navigate}) => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      setCartProducts(JSON.parse(storedCart));
+    }
+  }, []);
+
   const handleDetails = (product) => {
     setSelectedProduct(product);
     navigate("/details", { state: { selectedProduct: product } });
   }
 
+  const addToCart = (selectedProduct) => {
+    handleAddToCart(selectedProduct, 1);
+  }
+
   return(
     <div>
+      <div 
+        className={buttonClicked 
+        ? "w-fit m-auto absolute justify-center top-20 left-0 right-0 z-10" 
+        : "hidden"}
+      >
+        <Alert 
+          severity={buttonClicked ? "success" : "error"} 
+          className={buttonClicked ? "flex" : "hidden"}
+        >
+          {buttonClicked ? "Se agrego el producto al carrito" : ""}
+        </Alert>
+      </div>
 
       {/*Carousel*/}
       <div className="w-11/12 mb-2 mt-4 rounded-2xl overflow-hidden m-auto">
@@ -106,16 +132,21 @@ const Home = ({navigate}) => {
         <div className="md:mx-5 py-3 flex flex-wrap justify-center overflow-auto">
           {products.length > 0 ? (
             products.map((item) => (
-              <Cardproduct
-                key={item.id}
-                img1={item.img[0]}
-                img2={item.img[1]}
-                title={item.name}
-                price={item.price}
-                alt={item.name}
-                onClick={()=> handleDetails(item)}
-                className="md:w-1/4 lg:w-1/6 mx-3 my-2"
-              />
+              <div className="md:w-1/4 lg:w-1/6 mx-3 my-2" key={item.id}>
+                <Cardproduct
+                  img1={item.img[0]}
+                  img2={item.img[1]}
+                  title={item.name}
+                  price={item.price}
+                  alt={item.name}
+                  onClick={()=> handleDetails(item)}
+                />
+                <ButtonCard 
+                  text="Comprar"
+                  extraClass={buttonClicked ? "bg-orange-300 w-100" : "bg-orange-500 w-100"}
+                  onClick={()=> { addToCart(item); handleButtonClick(); }}
+                />
+              </div>
             ))
           ) : (
             <div>No hay productos disponibles</div>
@@ -126,7 +157,7 @@ const Home = ({navigate}) => {
       {/*Tournaments*/}
       <div className="text-center w-11/12 m-auto mt-5">
         <h4 className="font-bold text-2xl">HORARIO DEL TORNEO</h4>
-        <div>
+        <div className="mb-2 mt-4 rounded-2xl overflow-hidden m-auto">
           <CarouselHome 
             img1={imgTournament4}
             img2={imgTournament1}
@@ -137,6 +168,9 @@ const Home = ({navigate}) => {
           />
         </div>
       </div>
+
+      {/*Footer*/}
+      <Footer />
     </div>
   )
 }

@@ -24,11 +24,6 @@ const Cardproduct = ({id, img1, img2, title, price, className, alt, onClick}) =>
       />
       <p className="font-thin">{title}</p>
       <p className="py-2">${price}</p>
-      <div className="m-auto mx-1">
-        <p className="text-orange-500 border-orange-500 hover:bg-orange-500 hover:text-white border-2 py-2 px-5">
-          Comprar
-        </p>
-      </div>
     </div>
   )
 }

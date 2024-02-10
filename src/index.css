@@ -6,6 +6,10 @@ header{
     max-width: none !important;
 }
 
+.button-modal{
+    min-width: 0 !important;
+}
+
 .carousel-control-next{
     background-color: black;
     height: fit-content;

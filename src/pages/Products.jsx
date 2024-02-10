@@ -1,10 +1,13 @@
 import React, { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 
+import ButtonCard from "../components/Buttons";
 import Cardproduct from "../components/Card-product";
+import { Footer } from "../components/Footer";
 import InputText from "../components/Inputs";
+import Alert from '@mui/material/Alert';
 
-const Products = ({navigate}) => {
+const Products = ({navigate, setCartQuantity, handleButtonClick, buttonClicked, handleAddToCart, cartProducts, setCartProducts}) => {
   const [originalProducts, setOriginalProducts] = useState([]);
   const [products, setProducts] = useState([]);
   const [tcgSelected, setTcgSelected] = useState("pokemon");
@@ -57,9 +60,20 @@ const Products = ({navigate}) => {
     fetchData();
   }, [tcgSelected]);
 
+  useEffect(() => {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      setCartProducts(JSON.parse(storedCart));
+    }
+  }, []);
+
   const handleDetails = (product) => {
     setSelectedProduct(product);
     navigate("/details", { state: { selectedProduct: product } });
+  }
+
+  const addToCart = (selectedProduct) => {
+    handleAddToCart(selectedProduct, 1);
   }
 
   const handleFilter = () => {
@@ -77,16 +91,29 @@ const Products = ({navigate}) => {
       return true;
     });
 
-    setProducts(filteredProducts); // Establece los productos filtrados
+    setProducts(filteredProducts); 
   };
 
   return(
     <div>
+      <div 
+        className={buttonClicked 
+        ? "w-fit m-auto absolute justify-center top-20 left-0 right-0 z-10" 
+        : "hidden"}
+      >
+        <Alert 
+          severity={buttonClicked ? "success" : "error"} 
+          className={buttonClicked ? "flex" : "hidden"}
+        >
+          {buttonClicked ? "Se agrego el producto al carrito" : ""}
+        </Alert>
+      </div>
       {/* Brands */}
       <div className="flex max-md:flex-wrap justify-center lg:flex-nowrap w-11/12 m-auto mt-3">
       {brands.map(item => {
         return(
           <div 
+            key={item.name}
             className="mt-3 flex shadow-md py-2 px-3 rounded-2xl cursor-pointer
               max-sm:w-1/3 
               md:w-3/4 md:mx-2 md:my-4 max-md:w-1/2
@@ -130,16 +157,22 @@ const Products = ({navigate}) => {
           <div className="mx-5 flex justify-center text-center flex-wrap">
             {products.length > 0 ? (
               products.map((item) => (
-                <Cardproduct
-                  key={item.id}
-                  img1={item.img[0]}
-                  img2={item.img[1]}
-                  title={item.name}
-                  price={item.price}
-                  alt={item.name}
-                  onClick={()=> handleDetails(item)}
-                  className="sm:w-1/3 md:w-1/4 lg:w-1/6 mx-2 my-2"
-                />
+                <div className="sm:w-1/3 md:w-1/4 lg:w-1/6 mx-2 my-2">
+                  <Cardproduct
+                    key={item.id}
+                    img1={item.img[0]}
+                    img2={item.img[1]}
+                    title={item.name}
+                    price={item.price}
+                    alt={item.name}
+                    onClick={()=> handleDetails(item)}
+                  />
+                  <ButtonCard 
+                    text="Comprar"
+                    extraClass={buttonClicked ? "bg-orange-300 w-100" : "bg-orange-500 w-100"}
+                    onClick={()=> { addToCart(item); handleButtonClick(); }}
+                  />
+                </div>
               ))
             ) : (
               <div className="mt-4">No hay productos disponibles</div>
@@ -147,6 +180,7 @@ const Products = ({navigate}) => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
