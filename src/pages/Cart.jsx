@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
-import ButtonCard from "../components/Buttons";
+import { ButtonCard } from "../components/Buttons";
 import { Footer } from "../components/Footer";
 
-const Cart = ({ setCartQuantity }) => {
+export const Cart = ({ setCartQuantity }) => {
   const [cartProducts, setCartProducts] = useState([]);
 
   const handleQuantityPlus = (product) => {
@@ -53,8 +53,8 @@ const Cart = ({ setCartQuantity }) => {
 
   return (
     <div>
-      <div className="lg:w-10/12 justify-center m-auto lg:flex mt-5">
-        <ul className="mx-4 lg:w-9/12">
+      <div className={`lg:w-10/12 justify-center m-auto lg:flex ${cartProducts.length > 3 ? "md:h-fit" : "h-screen"} mt-5`}>
+        <div className="mx-4 lg:w-9/12">
           <div className="lg:flex hidden w-12/12 text-center font-bold">
             <p className="w-5/12">Producto</p>
             <p className="w-2/12">Precio</p>
@@ -62,11 +62,20 @@ const Cart = ({ setCartQuantity }) => {
             <p className="w-2/12">Subtotal</p>
           </div>
           <hr className="hidden lg:flex mt-3 w-12/12"></hr>
-          {cartProducts.map((product, index) => (
-            <li key={index} className="w-12/12 lg:text-left justify-center my-3">
+
+          {cartProducts.length > 0 
+            ? cartProducts.map((product, index) => (
+            <div 
+              key={index} 
+              className="w-12/12 lg:text-left justify-center my-3"
+            >
               <div className="lg:flex">
                 <div className="lg:w-2/12 flex">
-                  <img src={product.img} alt={product.name} className="object-contain" />
+                  <img 
+                    src={product.img} 
+                    alt={product.name} 
+                    className="object-contain max-md:p-2" 
+                  />
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     viewBox="0 0 24 24" 
@@ -112,10 +121,12 @@ const Cart = ({ setCartQuantity }) => {
                 </p>
               </div>
               <hr className="mt-3"></hr>
-            </li>
-          ))}
-        </ul>
-        <div className="lg:w-3/12">
+            </div>
+            ))
+            : <div className="m-5 flex justify-center text-2xl py-2">No hay productos</div>
+          }
+        </div>
+        <div className="sm:w-10/12 md:w-8/12 lg:w-3/12 mx-auto mb-5">
           <div className="mx-3 rounded-md border-1 h-fit sticky top-28">
             <p className="font-bold text-center mx-3 mt-3 max-md:text-2xl text-xl">RESUMEN</p>
             <hr className="mx-3 mt-3"></hr>
@@ -138,5 +149,3 @@ const Cart = ({ setCartQuantity }) => {
     </div>
   );
 };
-
-export default Cart;

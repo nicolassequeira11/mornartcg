@@ -10,6 +10,7 @@ header{
     min-width: 0 !important;
 }
 
+/* Carousel */
 .carousel-control-next{
     background-color: black;
     height: fit-content;
@@ -18,6 +19,14 @@ header{
     margin-right: 10px;
     border-radius: 100%;
     padding: 7px;
+}
+
+.carousel-control-next:focus{
+    opacity: 0.5 !important;
+}
+.carousel-control-next:hover{
+    opacity: 0.5 !important;
+    background-color: #f97316;
 }
 
 .carousel-control-prev{
@@ -30,9 +39,12 @@ header{
     padding: 7px;
 }
 
-.carousel-item{
-    background: rgb(0,0,0);
-    background: linear-gradient(0deg, rgba(0,0,0,0.6408614471179097) 0%, rgba(0,212,255,0) 100%);
+.carousel-control-prev:focus{
+    opacity: 0.5 !important;
+}
+.carousel-control-prev:hover{
+    opacity: 0.5 !important;
+    background-color: #f97316;
 }
 
 div.carousel-indicators{
@@ -51,3 +63,33 @@ div.carousel-indicators button{
 .active{
     background-color: #e0a34c !important;
 }
+
+/* Dropdown */
+#dropdown-basic:focus{
+    background-color: white !important;
+    box-shadow: none !important;
+    z-index: 30 !important;
+}
+
+#dropdown-basic:enabled{
+    background-color: white !important;
+}
+
+/* Animations */
+
+.show{
+    transition: all 0.5s ease-in-out;
+    animation: show 0.7s ease;
+}
+
+@keyframes show {
+    0%{
+      opacity: 0;
+    }
+  
+    100%{
+      opacity: 1;
+    }
+  }
+
+

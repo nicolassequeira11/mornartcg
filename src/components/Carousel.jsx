@@ -1,40 +1,50 @@
 import Carousel from 'react-bootstrap/Carousel';
 
-const CarouselHome = ({img1, img2, img3, img4, img5, img6, int1, int2, data}) => {
+export const CarouselHome = ({data, extraClass, extraClassImg}) => {
   return (
-    <Carousel className="m-auto flex h-90 justify-center">
-      <Carousel.Item interval={int1}>
-        <img src={img1} alt="mornarstore"  className='m-auto w-100'/>
-      </Carousel.Item>
-      <Carousel.Item interval={int2}>
-        <img src={img2} alt="mornarstore"  className='m-auto w-100'/>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img src={img3} alt="mornarstore"  className='m-auto w-100'/>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img src={img4} alt="mornarstore"  className='m-auto w-100'/>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img src={img5} alt="mornarstore"  className='m-auto w-100'/>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img src={img6} alt="mornarstore"  className='m-auto w-100'/>
-      </Carousel.Item>
-    </Carousel>
-  );
-}
-export {CarouselHome};
-
-const CarouselDetails = ({ data }) => {
-  return (
-    <Carousel className="shadow-md">
+    <Carousel className={`m-auto flex h-90 justify-center ${extraClass}`}>
       {data.map((item, index) => (
         <Carousel.Item key={index}>
-          <img src={item} className="w-100 h-100" />
+          <img 
+            src={item.img} 
+            alt="mornarstore"  
+            className={`m-auto w-100 object-cover ${extraClassImg}`}
+          />
         </Carousel.Item>
       ))}
     </Carousel>
   );
 }
-export {CarouselDetails};
+
+export const CarouselDetails = ({ data }) => {
+  return (
+    <Carousel className="shadow-md">
+      {data.map((item, index) => (
+        <Carousel.Item key={index} className="max-md:h-[300px] h-[450px]">
+          <img 
+            src={item} 
+            className="w-100 h-100 object-contain bg-white" 
+          />
+        </Carousel.Item>
+      ))}
+    </Carousel>
+  );
+}
+
+export const CarouselGallery = ({data, children}) => {
+  return(
+  <div className="flex flex-col m-auto p-auto w-11/12">
+    <div className="flex max-sm:overflow-x-scroll hide-scroll-bar">
+      <div className="flex flex-nowrap m-auto">
+        {data.map(item => (
+        <div className="inline-block">
+          <div className="max-sm:w-64 max-w-xs overflow-hidden flex text-center">
+            {children(item)}
+          </div>
+        </div>
+        ))}
+      </div>
+    </div>
+  </div>
+  )
+}

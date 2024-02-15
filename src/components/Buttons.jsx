@@ -1,6 +1,6 @@
 import React from "react";
 
-const ButtonCard = ({text, onClick, extraClass}) => {
+export const ButtonCard = ({text, onClick, extraClass}) => {
   return(
     <button 
       onClick={onClick}
@@ -10,5 +10,3 @@ const ButtonCard = ({text, onClick, extraClass}) => {
     </button>
   )
 }
-
-export default ButtonCard;

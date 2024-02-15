@@ -1,7 +1,7 @@
 import React from "react";
 import {Input} from "@nextui-org/react";
 
-const InputText = ({variant, label, placeholder, type, className, value, id, onChange, radius}) => {
+export const InputText = ({variant, label, placeholder, type, className, value, id, onChange, radius, onBlur}) => {
   const variants = ["flat", "bordered", "underlined", "faded"];
 
   return (
@@ -16,10 +16,10 @@ const InputText = ({variant, label, placeholder, type, className, value, id, onC
             id={id}
             onChange={onChange}
             radius={radius}
+            onBlur={onBlur}
           />
         </div>
     </div>  
   );
 }
 
-export default InputText;

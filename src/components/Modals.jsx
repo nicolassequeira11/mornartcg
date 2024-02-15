@@ -55,16 +55,26 @@ export const ModalLogin = () => {
                   >
                     Recordarme
                   </Checkbox>
-                  <Link color="primary" size="sm">
+                  <Link 
+                    color="primary" 
+                    size="sm"
+                  >
                     ¿Olvidaste tu contraseña?
                   </Link>
                 </div>
               </ModalBody>
               <ModalFooter>
-                <Button className="bg-dark text-white" variant="flat" onPress={onClose}>
+                <Button 
+                  className="bg-dark text-white" 
+                  variant="flat" 
+                  onPress={onClose}
+                >
                   Cerrar
                 </Button>
-                <Button className="bg-orange-500 text-white" onPress={onClose}>
+                <Button 
+                  className="bg-orange-500 text-white" 
+                  onPress={onClose}
+                >
                   Iniciar sesión
                 </Button>
               </ModalFooter>

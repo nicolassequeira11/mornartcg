@@ -1,46 +1,73 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
+import Logo from "../media/logo-mornar.png";
 import backgroundFooter from "../media/footer.png";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 export const Footer = () => {
   return(
-    <footer className="m-auto mt-5 pt-1 w-100 h-50 bg-cover" 
+    <footer className="m-auto pt-1 w-100 bg-cover" 
       style={{ backgroundImage: `url(${backgroundFooter})` }}
     >
-      <div className="flex max-md:flex-wrap max-md:flex-col-reverse max-md:w-100 lg:w-10/12 justify-center mx-auto my-10">
-        <div className="flex mx-auto justify-center max-md:m-auto max-md:w-10/12 lg:w-8/12 opacity-90">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13087.36949422611!2d-56.171781!3d-34.910405!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959f81a332c9b41f%3A0x6f8435a6ed7fcb19!2sMornar%20Store!5e0!3m2!1sen!2suy!4v1707528833703!5m2!1sen!2suy" 
-            className="m-auto w-100" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade"
-          >
-          </iframe>
+      <div className="flex max-md:w-100 lg:w-10/12 justify-center mx-auto my-10">
+
+        {/* Logo */}
+        <div className="w-2/12 lg:w-4/12 mx-auto">
+          <img src={Logo} className="flex lg:w-3/12 justify-start max-md:m-auto" />
         </div>
-        <div className="max-md:w-100 max-md:m-auto max-md:mb-5 mx-auto lg:w-4/12 lg:ms-5 justify-between flex flex-col text-white">
-          <p className="text-xl text-end max-md:w-fit">HORARIO</p>
-          <p className="text-xl text-end max-md:w-fit">Lunes a Viernes: 16:00 - 22:00</p>
-          <p className="text-xl text-end max-md:w-fit">Sábados y Domingos: 13:00 - 18:00</p>
-          <p className="text-md text-end max-md:w-fit">Juan Manuel Blanes 1053 esq. Durazno</p>
-        </div> 
+
+        {/* Horarios */}
+        <div 
+          className="w-8/12 max-lg:m-auto ms-0 lg:ms-5 justify-between flex flex-col text-white"
+        >
+          <p className="md:text-xl text-end w-100 max-md:w-fit py-1">
+            HORARIO
+          </p>
+          <p className="md:text-xl text-end w-100 max-md:w-fit py-1">
+            Lunes a Viernes: 16:00 - 22:00
+          </p>
+          <p className="md:text-xl text-end w-100 max-md:w-fit py-1">
+            Sábados y Domingos: 13:00 - 18:00
+          </p>
+          <p className="md:text-md text-end w-100 max-md:w-fit py-1">
+            Juan Manuel Blanes 1053 esq. Durazno
+          </p>
+        </div>
+
       </div>
       <div className="w-10/12 m-auto pb-4 flex">
-        <p className="text-white m-auto justify-center w-1/2">
-          Desarrollo y diseño por <a href="" className="hover:text-orange-500">Nicolás Sequeira</a></p>
+        <p 
+          className="text-white m-auto justify-center w-1/2"
+        >
+          Desarrollo y diseño por <a href="" className="hover:text-orange-500">Nicolás Sequeira</a>
+        </p>
         
         <div className="flex m-auto w-1/2 justify-content-end">
-          <Link href="" className="text-white">
+          <a href="#" className="text-white">
             <InstagramIcon className="hover:text-orange-500 mx-1" />
+          </a>
+          <a href="#" className="text-white">
             <FacebookIcon className="hover:text-orange-500 mx-1" />
+          </a>
+          <a href="#" className="text-white">
             <WhatsAppIcon className="hover:text-orange-500 mx-1" />
+          </a>
+          <a href="#" className="text-white">
             <YouTubeIcon className="hover:text-orange-500 ms-1" />
-          </Link>
+          </a>
+          <a
+            href="https://www.google.com/maps?ll=-34.910405,-56.171781&z=15&t=m&hl=en&gl=UY&mapclient=embed&cid=8035606626201226009" 
+            className="text-white"
+            target="_blank"
+          >  
+            <LocationOnIcon className="hover:text-orange-500 ms-1" />
+          </a>
+
         </div>
       </div>
     </footer>
