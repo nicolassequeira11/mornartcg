@@ -27,7 +27,7 @@ import BannerMobile4 from "../media/banner-mobile-4.jpg";
 import BannerMobile5 from "../media/banner-mobile-5.jpg";
 import BannerMobile6 from "../media/banner-mobile-6.png";
 
-export const Home = ({ newText, handleButtonClick, buttonClicked, handleAddToCart, setCartProducts, handleDetails}) => {
+export const Home = ({ newText, handleButtonClick, buttonClicked, handleAddToCart, setCartProducts, handleDetails }) => {
   const [pokemonProducts, setPokemonProducts] = useState([]);
   const [digimonProducts, setDigimonProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);

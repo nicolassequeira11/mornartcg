@@ -138,29 +138,23 @@ export const App = () => {
         <Route 
           path="/" 
           element={<Home 
-            navigate={navigate} 
+            newText={newText}
             handleButtonClick={buttonClick}
             buttonClicked={buttonClicked}
-            setCartQuantity={setCartQuantity}
-            cartProducts={cartProducts}
-            setCartProducts={setCartProducts}
             handleAddToCart={addToCart}
+            setCartProducts={setCartProducts}
             handleDetails={handleDetails}
-            newText={newText}
         />} 
         />
         <Route 
           path="/products" 
           element={<Products 
-            navigate={navigate}
+            newText={newText}
             handleButtonClick={buttonClick}
             buttonClicked={buttonClicked}
-            setCartQuantity={setCartQuantity}
-            cartProducts={cartProducts}
-            setCartProducts={setCartProducts}
             handleAddToCart={addToCart}
+            setCartProducts={setCartProducts}
             handleDetails={handleDetails}
-            newText={newText}
           />} 
         />
         <Route 
@@ -169,22 +163,20 @@ export const App = () => {
         />
         <Route 
           path="/cart" 
-          element={<Cart setCartQuantity={setCartQuantity} />}       
+          element={<Cart 
+            setCartQuantity={setCartQuantity} 
+          />}       
         />
         <Route 
           path="/details" 
           element={<Details 
-            selectedProduct={selectedProduct} 
-            setCartQuantity={setCartQuantity} 
-            buttonClicked={buttonClicked} 
-            handleButtonClick={buttonClick}
-            handleAddToCart={addToCart}
-            handleDetails={handleDetails}
-            cartProducts={cartProducts}
-            setCartProducts={setCartProducts} 
             products={products}
-            setProducts={setProducts}
             newText={newText}
+            handleDetails={handleDetails}
+            handleButtonClick={buttonClick}
+            buttonClicked={buttonClicked} 
+            handleAddToCart={addToCart}
+            setCartProducts={setCartProducts} 
           />} 
         />
       </Routes>
