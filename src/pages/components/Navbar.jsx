@@ -7,9 +7,9 @@ import {
   Link,
 } from "@nextui-org/react";
 import MenuIcon from "@mui/icons-material/Menu";
-import { InputText } from "./Inputs"; 
-import { ModalLogin } from "./Modals.jsx";
-import { AcmeLogo } from "../AcmeLogo.jsx";
+import { InputText } from "../../components/Inputs.jsx"; 
+import { ModalLogin } from "../../components/Modals.jsx";
+import { AcmeLogo } from "../../AcmeLogo.jsx";
 
 const Nav = ({ cartQuantity, buttonClicked, handleSearch, productSearch, handleDetails }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -110,11 +110,8 @@ const Nav = ({ cartQuantity, buttonClicked, handleSearch, productSearch, handleD
             </svg>
             <div>
               <span
-                className={
-                  buttonClicked
-                    ? "text-white absolute font-bold bg-orange-600 px-1 text-xs rounded-xl"
-                    : "absolute w-fit h-fit text-xs bg-orange-600 px-1 rounded-xl"
-                }
+                className={`text-xs bg-orange-600 absolute rounded-xl px-1 
+                  ${buttonClicked ? "text-white font-bold" : "w-fit h-fit"}`}
               >
                 {cartQuantity < 10 ? cartQuantity : "9+"}
               </span>

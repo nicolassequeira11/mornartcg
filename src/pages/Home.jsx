@@ -1,10 +1,9 @@
-import React, { useState, useEffect} from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { CarouselHome, CarouselGallery } from "../components/Carousel";
 import { Cardproduct } from "../components/Card-product";
 import { ButtonCard } from "../components/Buttons";
 import Alert from '@mui/material/Alert';
-import { Footer } from "../components/Footer";
+import { Footer } from "./components/Footer";
 
 // Banner Tournaments
 import imgTournament1 from "../media/pokemon-tournament.png";
@@ -28,7 +27,7 @@ import BannerMobile4 from "../media/banner-mobile-4.jpg";
 import BannerMobile5 from "../media/banner-mobile-5.jpg";
 import BannerMobile6 from "../media/banner-mobile-6.png";
 
-export const Home = ({navigate, newText, setCartQuantity, handleButtonClick, buttonClicked, handleAddToCart, cartProducts, setCartProducts, handleDetails}) => {
+export const Home = ({ newText, handleButtonClick, buttonClicked, handleAddToCart, setCartProducts, handleDetails}) => {
   const [pokemonProducts, setPokemonProducts] = useState([]);
   const [digimonProducts, setDigimonProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);

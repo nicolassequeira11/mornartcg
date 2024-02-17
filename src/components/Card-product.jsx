@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState } from "react";
 
  export const Cardproduct = ({id, img1, img2, title, price, className, alt, onClick, stock}) => {
   const [hovered, setHovered] = useState(false);

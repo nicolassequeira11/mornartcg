@@ -1,7 +1,5 @@
-import React, { useState, useEffect} from "react";
-import { useNavigate } from "react-router-dom";
-import { Button } from "@nextui-org/react";
-import { Footer } from "../components/Footer";
+import React from "react";
+import { Footer } from "./components/Footer";
 
 import PokemonTournament from "../media/pokemon-tournament.png";
 import DigimonTournament from "../media/digimon-tournament.png";

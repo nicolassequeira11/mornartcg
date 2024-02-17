@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import cn from 'classnames';
 
 // Components
 import { ButtonCard } from "../components/Buttons";
 import { Cardproduct } from "../components/Card-product";
-import { ChevronIcon } from "../components/ChevronIcon";
-import { Footer } from "../components/Footer";
+import { Footer } from "./components/Footer";
 import { InputText } from "../components/Inputs";
 
 // React Bootstrap
-import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -20,7 +17,7 @@ import {usePagination, PaginationItemType} from "@nextui-org/react";
 // Material UI
 import CheckIcon from '@mui/icons-material/Check';
 
-export const Products = ({navigate, newText, setCartQuantity, handleButtonClick, buttonClicked, handleAddToCart, cartProducts, setCartProducts, handleDetails }) => {
+export const Products = ({ newText, handleButtonClick, buttonClicked, handleAddToCart, setCartProducts, handleDetails }) => {
   const [originalProducts, setOriginalProducts] = useState([]);
   const [products, setProducts] = useState([]);
   const [tcgSelected, setTcgSelected] = useState("pokemon");

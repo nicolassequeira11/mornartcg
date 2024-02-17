@@ -5,6 +5,7 @@ export const handleSearch = (productSearch, setProductSearch, initialProductSear
     
   if (inputSearch === "") {
     setProductSearch(initialProductSearch);
+    contentSearch.classList.add("hidden");
   } else {
     let filterSearch = productSearch.filter(item => {
       return item.name.toLowerCase().includes(inputSearch);

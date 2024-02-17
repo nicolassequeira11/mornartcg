@@ -1,8 +1,7 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
 
-import Logo from "../media/logo-mornar.png";
-import backgroundFooter from "../media/footer.png";
+import Logo from "../../media/logo-mornar.png";
+import backgroundFooter from "../../media/footer.png";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';

@@ -1,7 +1,7 @@
 import React from "react";
 import {Input} from "@nextui-org/react";
 
-export const InputText = ({variant, label, placeholder, type, className, value, id, onChange, radius, onBlur}) => {
+export const InputText = ({variant, label, placeholder, type, className, id, onChange, radius, onBlur}) => {
   const variants = ["flat", "bordered", "underlined", "faded"];
 
   return (

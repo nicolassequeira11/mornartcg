@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { ButtonCard } from "../components/Buttons";
-import { Footer } from "../components/Footer";
+import { Footer } from "./components/Footer";
 
 export const Cart = ({ setCartQuantity }) => {
   const [cartProducts, setCartProducts] = useState([]);

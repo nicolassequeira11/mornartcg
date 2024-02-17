@@ -26,7 +26,7 @@ export const handleAddToCart = (selectedProduct, quantity, cartProducts, setCart
   // If this product not exist, add it
   if (!updatedCartProducts.some(product => product.id === newItem.id)) {
     if(newItem.stock > 0){
-      handleAlert("success", "Se agrego el producto al carrito.");
+      handleAlert("success", "Se agregó el producto al carrito.");
       updatedCartProducts.push(newItem);
     } else {
       handleAlert("error", "No hay stock disponible.");

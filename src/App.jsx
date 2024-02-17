@@ -11,7 +11,7 @@ import { Tournaments } from "./pages/Tournaments.jsx";
 import { Cart } from "./pages/Cart.jsx";
 import { Details } from "./pages/Details.jsx";
 // Components
-import Nav from './components/Navbar.jsx';
+import Nav from './pages/components/Navbar.jsx';
 // Utils
 import { handleAddToCart, handleButtonClick } from './utils/shopUtils.jsx';
 import { handleSearch } from './utils/menuUtils.jsx';

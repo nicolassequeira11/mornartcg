@@ -3,10 +3,9 @@ import { useLocation } from "react-router-dom";
 import { ButtonCard } from "../components/Buttons";
 import { CarouselDetails } from "../components/Carousel";
 import { Cardproduct } from "../components/Card-product";
-import { Footer } from "../components/Footer";
-import Alert from '@mui/material/Alert';
+import { Footer } from "./components/Footer";
 
-export const Details = ({ products, newText, setProducts, handleDetails, setCartQuantity, handleButtonClick, buttonClicked, handleAddToCart, cartProducts, setCartProducts }) => {
+export const Details = ({ products, newText, handleDetails, handleButtonClick, buttonClicked, handleAddToCart, setCartProducts }) => {
   const { state } = useLocation();
   const selectedProduct = state ? state.selectedProduct : null;
   const [quantity, setQuantity] = useState(1);
