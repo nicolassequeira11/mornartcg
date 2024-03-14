@@ -53,7 +53,7 @@ export const Products = ({ newText, handleButtonClick, buttonClicked, handleAddT
     },
     {
       "name": "onepiece",
-      "img": "https://gatheringgames.co.uk/cdn/shop/products/one-piece-card-game-double-pack-set-vol3-dp-03-656563.png?v=1696594990"
+      "img": "https://i.ibb.co/X8jLP1m/logo-op.png"
     },
     {
       "name": "magic",
